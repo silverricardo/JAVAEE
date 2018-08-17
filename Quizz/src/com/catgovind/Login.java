@@ -40,7 +40,7 @@ public class Login {
 	    	FacesContext context = FacesContext.getCurrentInstance();
 	    	context.getExternalContext().invalidateSession();
 	        try {
-				context.getExternalContext().redirect("Login.xhtml");
+				context.getExternalContext().redirect("Index.xhtml");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
