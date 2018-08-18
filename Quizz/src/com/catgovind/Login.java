@@ -19,8 +19,10 @@ public class Login {
 	 public void login() {
 	        
 	        FacesContext context = FacesContext.getCurrentInstance();
+	        
+	        int resultado = BDExample.verificaUser(username, password);
 
-	        if(this.username.equals("admin") && this.password.equals("admin")){
+	        if(resultado != null){
 	            context.getExternalContext().getSessionMap().put("user", username);
 	            try {
 					context.getExternalContext().redirect("Home.xhtml");
