@@ -19,10 +19,8 @@ public class Login {
 	 public void login() {
 	        
 	        FacesContext context = FacesContext.getCurrentInstance();
-	        
-	        int resultado = BDExample.verificaUser(this.username, this.password);
 
-	        if(resultado == 1){
+	        if(this.username.equals("admin") && this.password.equals("admin")){
 	            context.getExternalContext().getSessionMap().put("user", username);
 	            try {
 					context.getExternalContext().redirect("Home.xhtml");
@@ -40,7 +38,7 @@ public class Login {
 	    	FacesContext context = FacesContext.getCurrentInstance();
 	    	context.getExternalContext().invalidateSession();
 	        try {
-				context.getExternalContext().redirect("Index.xhtml");
+				context.getExternalContext().redirect("Login.xhtml");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
