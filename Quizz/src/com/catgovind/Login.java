@@ -22,7 +22,7 @@ public class Login {
 	        
 	        int resultado = BDExample.verificaUser(username, password);
 
-	        if(resultado != null){
+	        if(resultado == 0){
 	            context.getExternalContext().getSessionMap().put("user", username);
 	            try {
 					context.getExternalContext().redirect("Home.xhtml");

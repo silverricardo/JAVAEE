@@ -10,7 +10,7 @@ public class BDExample {
 	
 	static Connection con = null;
 	static Statement stmt = null;
-	static final String DB_URL = "jdbc:mysql://localhost:3306/quizz";
+	static final String DB_URL = "jdbc:mysql://localhost:3306/quizz?autoReconnect=true&useSSL=false&serverTimezone=UTC";
 	static final String USER = "root";
 	static final String PASS = "root";
 	
@@ -20,10 +20,11 @@ public class BDExample {
 		try {
 			con = DriverManager.getConnection(DB_URL, USER, PASS);
 		} catch (SQLException e) {
+			System.out.println(e.getMessage());
 			System.out.println("Sem conecção a base de dados");
 		}
 		
-		String query = "select * from users where email='username' and password='password'";
+		String query = "select * from users where email='"+username+"' and password='"+password+"'";
 		try {
 			stmt = con.createStatement();
 		} catch (SQLException e) {
